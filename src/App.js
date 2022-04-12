@@ -1,4 +1,5 @@
 import { getAuth } from "firebase/auth";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import app from "./firebase.init";
 
@@ -14,11 +15,19 @@ function App() {
     console.log(event.target.value);
   }
 
+  const handleFormSubmit = event => {
+    console.log('form submitted');
+    event.preventDefault();
+  }
+
   return (
     <div className="App">
-      <form>
+      <form onSubmit={handleFormSubmit}>
         <input onBlur={handleEmailBlur} type="email" name="" id="" />
+        <br />
         <input onBlur={handlePasswordBlur} type="password" name="" id="" />
+        <br />
+        <input type="submit" value="Login" />
       </form>
     </div>
   );
